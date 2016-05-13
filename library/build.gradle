@@ -1,0 +1,49 @@
+apply plugin: 'com.android.library'
+//apply from: 'maven-push.gradle'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+
+    publishNonDefault true
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'data-controller'
+
+    publishedGroupId = 'com.personal'
+    libraryName = 'DataController'
+    artifact = 'data-controller'
+
+    libraryDescription = 'First Library'
+    libraryVersion = '1.0.0'
+
+    siteUrl = 'https://github.com/HuyenNguyenThi/Data_Controller'
+    gitUrl = 'https://github.com/HuyenNguyenThi/Data_Controller.git'
+
+    developerId = 'huyennguyenthi'
+    developerName = 'Huyen Nguyen'
+    developerEmail = 'huyennguyen@antking.com.vn'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
+apply from: 'https://raw.githubusercontent.com/huyennguyenthi/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/huyennguyenthi/JCenter/master/bintrayv1.gradle'
